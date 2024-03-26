@@ -1,5 +1,5 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-
+<?php get_header(); ?>
 <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
 <main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
     <!-- wp:group {"layout":{"type":"constrained"}} -->
@@ -14,4 +14,5 @@
 </main>
 <!-- /wp:group -->
 
+<?php get_footer(); ?>
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

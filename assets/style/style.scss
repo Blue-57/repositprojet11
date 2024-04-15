@@ -1,0 +1,21 @@
+@import "font";
+@import "nav_bar_header";
+@import "nav_bar_footer";
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; //Place le footer en bas de la page 
+    min-height: 100vh; // Force le corps à occuper au moins toute la hauteur de la fenêtre 
+    margin: 0; 
+  }
+  
+  .footer {
+    display: flex;
+   justify-content: center;
+   border-top: 1px solid black;
+  }

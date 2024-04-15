@@ -17,10 +17,10 @@
 
             <nav class="header__nav">
                 <?php
-
+                the_custom_logo();
 
                 if (has_nav_menu('primary_menu')) {
-                    wp_nav_menu(array('theme_location' => 'primay_menu', ));
+                    wp_nav_menu(array('theme_location' => 'primary_menu', ));
                 }
 
 

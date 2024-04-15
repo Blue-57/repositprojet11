@@ -1,0 +1,41 @@
+
+.header {
+  margin-top: 30px;
+
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+
+    
+
+    img {
+      width: 400px;
+      height: auto;
+    }
+  
+
+  }}
+
+  .menu {
+    list-style: none;
+    display: flex;
+    
+    font-family: 'firstpolice';
+    
+  
+    li {
+      margin-right: 60px;
+      
+      a {
+        color: black; 
+        text-decoration: none;
+      }
+
+      &:hover {
+        font-weight: 700;
+        cursor: pointer;
+
+    }
+    }
+  }
+  

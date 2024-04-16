@@ -23,8 +23,8 @@
                     wp_nav_menu(array('theme_location' => 'primary_menu', ));
                 }
 
-
                 ?>
+                <?php include get_template_directory() . '/templates/modale.php'; ?>
 
             </nav>
 

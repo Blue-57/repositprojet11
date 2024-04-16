@@ -1,48 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "firstpolice";
-  src: url(/wp-content/themes/nathaliemota/assets/font/SpaceMono-Regular.ttf) format("truetype");
-}
-@font-face {
-  font-family: "secondpolice";
-  src: url(/wp-content/themes/nathaliemota/assets/font/Poppins-Regular.ttf) format("truetype");
-}
-.header {
-  margin-top: 30px;
-}
-.header__nav {
-  display: flex;
-}
-.header__nav img {
-  margin-top: 3%;
-  width: 400px;
-  height: auto;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-  font-family: "firstpolice";
-}
-.menu li {
-  margin-right: 60px;
-}
-.menu li a {
-  color: black;
-  text-decoration: none;
-  line-height: 23.7px;
-}
-.menu li:hover {
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid black;
-}
-
 /*bouton*/
 .btn-contact {
   /* Supprimer les styles de bouton par défaut */
@@ -135,16 +91,4 @@
 .wpcf7-form input[type=submit]:hover {
   background-color: black;
   color: white;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  margin: 0;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=modal-contact.css.map */

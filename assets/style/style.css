@@ -1,21 +1,25 @@
 @charset "UTF-8";
 @font-face {
   font-family: "firstpolice";
-  src: url(/wp-content/themes/nathaliemota/assets/font/SpaceMono-Regular.ttf) format("truetype");
+  src: url("../font/SpaceMono-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "secondpolice";
-  src: url(/wp-content/themes/nathaliemota/assets/font/Poppins-Regular.ttf) format("truetype");
+  src: url("../font/Poppins-Regular.ttf") format("truetype");
 }
 .header {
+  height: 80px;
   margin-top: 30px;
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
 }
 .header__nav {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .header__nav img {
   margin-top: 3%;
-  width: 400px;
+  width: 300px;
   height: auto;
 }
 
@@ -41,20 +45,6 @@
   display: flex;
   justify-content: center;
   border-top: 1px solid black;
-}
-
-/*bouton*/
-.btn-contact {
-  /* Supprimer les styles de bouton par défaut */
-  font-family: "firstpolice";
-  cursor: pointer;
-  font-size: 20px;
-  background: none;
-  border: none;
-}
-.btn-contact:hover {
-  font-weight: 700;
-  cursor: pointer;
 }
 
 /*scss modal*/

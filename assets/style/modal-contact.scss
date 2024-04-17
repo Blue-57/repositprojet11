@@ -1,21 +1,4 @@
 
-/*bouton*/
-
-.btn-contact {
-    /* Supprimer les styles de bouton par défaut */
-    font-family: 'firstpolice';
-    cursor: pointer;
-    font-size: 20px;
-    background: none;
-    border: none; 
-    &:hover {
-        font-weight: 700;
-        cursor: pointer;
-
-    }
-    
-    
-}
 /*scss modal*/
 .modal {
     display: none; /* Par défaut, la modal est cachée */

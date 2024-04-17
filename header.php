@@ -24,10 +24,9 @@
                 }
 
                 ?>
-                <?php include get_template_directory() . '/templates/modale.php'; ?>
+
 
             </nav>
-
 
         </section>
 

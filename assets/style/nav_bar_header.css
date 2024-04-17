@@ -1,12 +1,16 @@
 .header {
-  margin-top: 30px;
+  height: 75px;
+  margin-top: 15px;
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
 }
 .header__nav {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .header__nav img {
   margin-top: 3%;
-  width: 400px;
+  width: 300px;
   height: auto;
 }
 

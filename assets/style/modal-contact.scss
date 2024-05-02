@@ -14,12 +14,10 @@
 
 .modal__container {
     background-color: #fefefe;
-    margin: 8% auto; /* Centrer la modal verticalement et horizontalement */
+    margin: 6% auto; /* Centrer la modal verticalement et horizontalement */
     padding: 20px;
     border: 3px solid black;
-    width: 35%;
-    height: 70%;
-    max-width: 500px; /* Largeur maximale de la modal */
+    width: 25%;
     position: relative;
     overflow: hidden;
     .close {/*la crois reste cacher pour une estetique */
@@ -38,7 +36,7 @@
         width: 800px;
         position: relative;
         left: -50px;
-        margin-top: -10%;
+        
     }
     
 }
@@ -62,6 +60,7 @@
         box-sizing: border-box; 
         font-family: 'secondpolice';
         font-size: 12px;
+        
     }
 
     label {
@@ -73,6 +72,8 @@
         display: flex;
         justify-content: center;
         background-color: white; 
+        width: 50%;
+        max-width: 200px;
         color:black; 
         padding: 10px 120px; 
         border: none;   
@@ -80,6 +81,7 @@
         font-family: 'secondpolice';
         font-size: 14px;
         transition: background-color 0.4s, color 0.4s;
+
         &:hover {
             background-color: black;
             color: white;

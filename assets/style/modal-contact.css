@@ -13,12 +13,10 @@
 
 .modal__container {
   background-color: #fefefe;
-  margin: 8% auto; /* Centrer la modal verticalement et horizontalement */
+  margin: 6% auto; /* Centrer la modal verticalement et horizontalement */
   padding: 20px;
   border: 3px solid black;
-  width: 35%;
-  height: 70%;
-  max-width: 500px; /* Largeur maximale de la modal */
+  width: 25%;
   position: relative;
   overflow: hidden;
 }
@@ -37,7 +35,6 @@
   width: 800px;
   position: relative;
   left: -50px;
-  margin-top: -10%;
 }
 
 /*formulaire*/
@@ -66,6 +63,8 @@
   display: flex;
   justify-content: center;
   background-color: white;
+  width: 50%;
+  max-width: 200px;
   color: black;
   padding: 10px 120px;
   border: none;

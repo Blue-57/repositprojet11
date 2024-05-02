@@ -61,12 +61,10 @@
 
 .modal__container {
   background-color: #fefefe;
-  margin: 8% auto; /* Centrer la modal verticalement et horizontalement */
+  margin: 6% auto; /* Centrer la modal verticalement et horizontalement */
   padding: 20px;
   border: 3px solid black;
-  width: 35%;
-  height: 70%;
-  max-width: 500px; /* Largeur maximale de la modal */
+  width: 25%;
   position: relative;
   overflow: hidden;
 }
@@ -85,7 +83,6 @@
   width: 800px;
   position: relative;
   left: -50px;
-  margin-top: -10%;
 }
 
 /*formulaire*/
@@ -114,6 +111,8 @@
   display: flex;
   justify-content: center;
   background-color: white;
+  width: 50%;
+  max-width: 200px;
   color: black;
   padding: 10px 120px;
   border: none;
@@ -127,8 +126,111 @@
   color: white;
 }
 
-.header {
-  color: white;
+.post-bloc {
+  font-family: "firstpolice";
+  display: flex;
+  flex-direction: row;
+}
+.post-bloc__description {
+  border-bottom: 1px solid black;
+  align-self: flex-end;
+  padding-bottom: 43px;
+  width: 85vh;
+  height: 35vh;
+}
+.post-bloc h1 {
+  font-style: italic;
+  padding-bottom: 40px;
+  font-size: 3em;
+  line-height: 1em;
+  display: block;
+}
+.post-bloc p {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-bottom: 9px;
+}
+
+.post-bloc__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 70vh;
+}
+
+.post-photo {
+  margin: 15vh;
+}
+
+.interaction-photo {
+  height: 118px;
+  border-bottom: 1px solid black;
+}
+.interaction-photo > div {
+  display: flex;
+  align-items: center;
+}
+.interaction-photo__btn {
+  width: 142px;
+}
+.interaction-photo__navigation {
+  width: 108px;
+  display: flex;
+  flex-direction: column;
+}
+.interaction-photo__navigation .preview {
+  width: 78px;
+  height: 50%;
+  margin: auto 0 auto auto;
+}
+.interaction-photo__navigation .preview img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0;
+}
+.interaction-photo__navigation .preview .previous-image {
+  margin-top: 38%;
+}
+.interaction-photo__navigation .preview .next-image {
+  margin-top: -38%;
+}
+.interaction-photo__navigation .fleche .fleche-droite .fleche-gauche {
+  width: 108px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: 92px;
+}
+.interaction-photo__navigation .fleche .fleche-droite .fleche-gauche .fleche {
+  width: 25px;
+  cursor: pointer;
+}
+
+.recommandations {
+  padding-top: 77px;
+}
+.recommandations h2 {
+  padding-bottom: 40px;
+  font-family: "firstpolice";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.recommandations__btn {
+  width: 214px;
+  display: block;
+  margin: 51px auto 71px auto;
+}
+
+.texte {
+  font-family: "secondpolice";
+  font-weight: 300;
+  font-size: 14px;
+  margin-right: 28px;
 }
 
 html {
@@ -141,5 +243,4 @@ body {
   justify-content: space-between;
   min-height: 100vh;
   margin: 0;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

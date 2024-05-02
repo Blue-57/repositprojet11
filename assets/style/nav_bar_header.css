@@ -3,13 +3,11 @@
   margin-top: 15px;
   box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
 }
-
 .header__nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-
 .header__nav img {
   margin-top: 3%;
   width: 300px;
@@ -21,20 +19,15 @@
   display: flex;
   font-family: "firstpolice";
 }
-
 .menu li {
   margin-right: 60px;
 }
-
 .menu li a {
   color: black;
   text-decoration: none;
   line-height: 23.7px;
 }
-
 .menu li:hover {
   font-weight: 700;
   cursor: pointer;
-}
-
-/*# sourceMappingURL=nav_bar_header.css.map */
+}/*# sourceMappingURL=nav_bar_header.css.map */

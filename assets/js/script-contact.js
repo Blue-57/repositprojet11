@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "block";
     }
 
-    // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
     }
@@ -24,4 +23,30 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = "none";
         }
     }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const previousImage = document.querySelector('.previous-image');
+    const nextImage = document.querySelector('.next-image');
+
+    // Cacher les images précédentes et suivantes par défaut
+    previousImage.style.display = 'none';
+    nextImage.style.display = 'none';
+
+    const arrowGauche = document.querySelector('.fleche-gauche');
+    const arrowDroite = document.querySelector('.fleche-droite');
+
+    // Événement au clic sur la flèche gauche
+    arrowGauche.addEventListener('click', function () {
+        previousImage.style.display = 'block';
+        nextImage.style.display = 'none';
+    });
+
+    // Événement au clic sur la flèche droite
+    arrowDroite.addEventListener('click', function () {
+        previousImage.style.display = 'none';
+        nextImage.style.display = 'block';
+    });
 });

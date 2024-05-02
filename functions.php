@@ -28,7 +28,7 @@ function theme_enqueue_styles()
 {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css'); //theme parent
 
-    wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/style/style.css', array('parent-style'), '1.0.0', 'all');
+    wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/style/style.css', array('parent-style'), '1.1.0', 'all', );
 
     wp_enqueue_script('custom-script-contact', get_stylesheet_directory_uri() . '/assets/js/script-contact.js', array('jquery'), '1.0.0', true);
 }

@@ -2,8 +2,9 @@
 
 <div id="modalContact" class="modal">
     <div class="modal__container">
-        <span class="close">X</span>
-        <img src="wp-content\themes\nathaliemota\assets\img\Contact header-1.jpg" alt="contact" class="popup-image" />
+        <span class="close"></span>
+        <img src="<?php echo get_template_directory_uri() ?>/assets/img/Contact header-1.jpg" alt="contact"
+            class="popup-image" />
 
 
 

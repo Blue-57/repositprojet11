@@ -1,26 +1,33 @@
-.post-bloc {
+.post-photo { //bloc page
+    margin-left: 22vh;
+    margin-right: 22vh;
+    margin-top: 5vh;
+}
+
+
+
+.post-bloc { // premiere section
    
-    
     font-family: 'firstpolice';
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    
     
     &__description {
         border-bottom: 1px solid black;
         align-self: flex-end;
-        padding-bottom: 43px;
-        width: 85vh;
-        height: 35vh;
+        padding-bottom: 50px;
+        width: 72vh;
+       
     }
-
-   
-
     h1 {
         font-style: italic;
-        padding-bottom: 40px;
+       
         font-size: 3em;
         line-height: 1em;
         display: block;
+        width: 30vh;
     }
 
     p {
@@ -36,63 +43,103 @@ object-fit: cover;
     width: 70vh;
     
 }
-.post-photo {
-    margin: 15vh;
-}
+
+
+
+//deuxieme section
 
 .interaction-photo {
     height: 118px;
     border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+   
 
-    > div {
-        display: flex;
-        align-items: center;
+    .interaction-texte {
+    display: flex;
+    align-items: center;
     }
-
+    
     &__btn {
-        width: 142px;
+        font-family: 'firstpolice';
+        width: 35vh;
+        height: 5vh;
+        margin-left: 17vh;
+        background-color: #D8D8D8; 
+        border: 1px solid transparent; 
+        
+        outline: none; 
+        transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; 
+    }
+    &__btn:hover
+    {
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2); 
+    border-color: #D8D8D8; 
+}
+}
+
+.texte {
+    font-family: 'secondpolice';
+    font-weight: 300;
+    font-size: 14px;
+    
+}
+
+// previlualisation photo 
+.interaction-photo__navigation {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.8vh;
+    justify-content: center;
+
+    .fleche {
+        width: 25vh;
+        cursor: pointer;   
+        opacity: 0.5;   
+        transition: opacity 0.3s ease;
+        &:hover {
+            opacity: 1; // Opacité maximale au survol
+        }
+        
     }
 
-    &__navigation {
-        width: 108px;
-        display: flex;
-        flex-direction: column;
+    .fleche-gauche {
+        margin-right: 5vh;
+    }
 
-        .preview {
-            width: 78px;
-            height: 50%;
-            margin: auto 0 auto auto;
+    .preview {
+        position: absolute; 
+        margin-bottom: 20px;
+        
+        
+        
+    }
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                opacity: 0;
-            }
+    .preview img {
+        width: 11vh;
+        height: 8vh;
+        object-fit: cover;  
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-            .previous-image {
-                margin-top: 38%;
-            }
+    .fleche:hover + .preview,
+    .preview:hover {
+        display: block; 
+    }
 
-            .next-image {
-                margin-top: -38%;
-            }
-        }
-
-        .fleche .fleche-droite .fleche-gauche{
-            width: 108px;
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            margin-top: 92px;
-
-            .fleche{
-                width: 25px;
-                cursor: pointer;
-            }
-        }
+    .previous-image img,
+    .next-image img {
+        opacity: 0;
+        transition: opacity 0.5s ease;
     }
 }
+
+
+
+
+
 
 .recommandations {
     padding-top: 77px;
@@ -114,10 +161,4 @@ object-fit: cover;
     }
 }
 
-.texte {
-    font-family: 'secondpolice';
-    font-weight: 300;
-    font-size: 14px;
-    margin-right: 28px;
-}
 

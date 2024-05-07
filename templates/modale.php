@@ -9,6 +9,7 @@
 
 
         <?php echo do_shortcode('[contact-form-7 id="600c11a" title="Formulaire de contact 1"]') ?>
+        <span id="reference-photo" style="display: none;">123456</span>
     </div>
 
 </div>

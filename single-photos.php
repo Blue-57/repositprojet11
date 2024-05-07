@@ -1,9 +1,15 @@
-<?php get_header(); ?>
+    <?php get_header(); ?>
 
 
 
 
+        <?php
 
+            $reference = esc_attr(get_post_meta(get_the_ID(), "reference", true));// recuperation de la ref + cript action fichier js/ modif danc WP contact from 7
+        ?>
+            <script>
+                var reference = '<?php echo $reference; ?>';
+            </script>
 
 
 <div class="post-photo ">
@@ -53,9 +59,9 @@
 
 
             <section class="interaction-photo ">
-                <div>
+                <div class="interaction-texte">
                     <p class="texte">Cette photo vous intéresse ?</p>
-                    <input class="interaction-photo__btn bouton btn-modale" type="button" value="Contact">
+                    <input class="interaction-photo__btn bouton btn-modale" type="button" value="Contact" id="contactBtn">
                 </div>
                 <div class="interaction-photo__navigation">
                     <?php
@@ -65,25 +71,37 @@
                     if (!empty($prevPost)) {
                         $prevThumbnail = get_the_post_thumbnail_url($prevPost->ID);
                         $prevLink = get_permalink($prevPost); ?>
-                        <div class="fleche">
+                        <div class="fleche-gauche">
                             <a href="<?php echo $prevLink; ?>">
-                                <img class="fleche fleche-gauche"
+                                <img class="fleche-g"
                                     src="<?php echo get_template_directory_uri(); ?>/assets/img/flèche-gauche.png"
                                     alt="Flèche pointant vers la gauche" />
                             </a>
                         </div>
+                        <div class="preview">
+                    <img class="previous-image" src="<?php echo $prevThumbnail; ?>" alt="Prévisualisation image précédente">
+                    </div>
                     <?php }
                     if (!empty($nextPost)) {
                         $nextThumbnail = get_the_post_thumbnail_url($nextPost->ID);
                         $nextLink = get_permalink($nextPost); ?>
-                        <div class="fleche">
+                        <div class="fleche-droite">
                             <a href="<?php echo $nextLink; ?>">
-                                <img class="fleche fleche-droite"
+                                <img class="fleche-d"
                                     src="<?php echo get_template_directory_uri(); ?>/assets/img/flèche-droite.png"
                                     alt="Flèche pointant vers la droite" />
                             </a>
                         </div>
+                        <div class="preview">
+                    <img class="next-image" src="<?php echo $nextThumbnail; ?>" alt="Prévisualisation image suivante">
+
+
+                    </div>
                     <?php } ?>
+
+
+                    
+                   
                 </div>
             </section>
 
@@ -91,79 +109,18 @@
             <section class="recommandations">
                 <h2>Vous aimerez aussi</h2>
                 <div class="recommandations__images ">
-                    <?php
-                    $categorie = strip_tags(get_the_term_list(get_the_ID(), 'categories_photo'));
-                    $random_images = new WP_Query(
-                        array(
-                            'post_type' => 'photos',
-                            'post__not_in' => array(get_the_ID()),
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'categories_photo',
-                                    'field' => 'slug',
-                                    'terms' => $categorie,
-                                ),
-                            ),
-                            'orderby' => 'rand',
-                            'posts_per_page' => 2
-                        )
-                    );
-
-                    if ($random_images->have_posts()):
-                        while ($random_images->have_posts()):
-                            $random_images->the_post();
-                            ?>
-                            <div class="recommandations__image">
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_post_thumbnail(); ?>
-                                </a>
-                            </div>
-                        <?php endwhile;
-                        wp_reset_postdata();
-                    else:
-                        echo '<p class="texte">Il n\'y a pas encore d\'autres photos à afficher dans cette catégorie.</p>';
-                    endif;
-                    ?>
+                <?php
+       
+                    get_template_part('templates/photo_block');
+                ?>
                 </div>
-                <button class="recommandations__btn bouton" onclick="window.location.href='<?php echo site_url() ?>'">
-                    Toutes les photos
-                </button>
+                
             </section>
 
         <?php endwhile; endif; ?>
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php get_footer(); ?>

@@ -1,15 +1,15 @@
-    <?php get_header(); ?>
+<?php get_header(); ?>
 
 
 
 
-        <?php
+<?php
 
-            $reference = esc_attr(get_post_meta(get_the_ID(), "reference", true));// recuperation de la ref + cript action fichier js/ modif danc WP contact from 7
-        ?>
-            <script>
-                var reference = '<?php echo $reference; ?>';
-            </script>
+$reference = esc_attr(get_post_meta(get_the_ID(), "reference", true));// recuperation de la ref + cript action fichier js/ modif danc WP contact from 7
+?>
+<script>
+    var reference = '<?php echo $reference; ?>';
+</script>
 
 
 <div class="post-photo ">
@@ -41,7 +41,8 @@
                     }
                     ?>
                     <p>Type : <?php echo get_post_meta(get_the_ID(), 'type', true); ?></p>
-                    <p>Année : <?php echo get_the_date('Y'); ?></p>
+                    <p>Année : <?php echo get_field('field_6627e2c622964'); ?></p>
+
 
 
 
@@ -61,7 +62,7 @@
             <section class="interaction-photo ">
                 <div class="interaction-texte">
                     <p class="texte">Cette photo vous intéresse ?</p>
-                    <input class="interaction-photo__btn bouton btn-modale" type="button" value="Contact" id="contactBtn">
+                    <input class="interaction-photo__btn bouton btn-modale" type="button" value="Contact" id="bottom-Btn">
                 </div>
                 <div class="interaction-photo__navigation">
                     <?php
@@ -73,48 +74,46 @@
                         $prevLink = get_permalink($prevPost); ?>
                         <div class="fleche-gauche">
                             <a href="<?php echo $prevLink; ?>">
-                                <img class="fleche-g"
-                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/flèche-gauche.png"
+                                <img class="fleche-g" src="<?php echo get_template_directory_uri(); ?>/assets/img/flèche-gauche.png"
                                     alt="Flèche pointant vers la gauche" />
                             </a>
                         </div>
                         <div class="preview">
-                    <img class="previous-image" src="<?php echo $prevThumbnail; ?>" alt="Prévisualisation image précédente">
-                    </div>
+                            <a href="<?php echo $prevLink; ?>">
+                                <img class="previous-image" src="<?php echo $prevThumbnail; ?>"
+                                    alt="Prévisualisation image précédente">
+                            </a>
+                        </div>
                     <?php }
                     if (!empty($nextPost)) {
                         $nextThumbnail = get_the_post_thumbnail_url($nextPost->ID);
                         $nextLink = get_permalink($nextPost); ?>
                         <div class="fleche-droite">
                             <a href="<?php echo $nextLink; ?>">
-                                <img class="fleche-d"
-                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/flèche-droite.png"
+                                <img class="fleche-d" src="<?php echo get_template_directory_uri(); ?>/assets/img/flèche-droite.png"
                                     alt="Flèche pointant vers la droite" />
                             </a>
                         </div>
                         <div class="preview">
-                    <img class="next-image" src="<?php echo $nextThumbnail; ?>" alt="Prévisualisation image suivante">
-
-
-                    </div>
+                            <a href="<?php echo $nextLink; ?>">
+                                <img class="next-image" src="<?php echo $nextThumbnail; ?>" alt="Prévisualisation image suivante">
+                            </a>
+                        </div>
                     <?php } ?>
-
-
-                    
-                   
                 </div>
+
             </section>
 
 
             <section class="recommandations">
                 <h2>Vous aimerez aussi</h2>
                 <div class="recommandations__images ">
-                <?php
-       
+                    <?php
+
                     get_template_part('templates/photo_block');
-                ?>
+                    ?>
                 </div>
-                
+
             </section>
 
         <?php endwhile; endif; ?>

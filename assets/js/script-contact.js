@@ -26,6 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+// JavaScript pour le bouton du bas de la page
+jQuery(document).ready(function ($) {
+    // Gestionnaire de clic pour le bouton en bas de la page
+    $('#bottom-Btn').click(function () {
+        var reference = window.reference;
+        $('#reference-form-field').val(reference);
+        $('#modalContact').show();
+    });
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const arrowGauche = document.querySelector('.fleche-gauche');
     const arrowDroite = document.querySelector('.fleche-droite');
@@ -73,9 +87,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-jQuery(document).ready(function ($) {// affichage de la modal avec la ref 
-    $('.interaction-photo__btn').click(function () {
-        $('#reference-form-field').val(reference);
-        $('#modalContact').show();
-    });
-});
+

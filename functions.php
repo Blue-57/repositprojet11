@@ -34,3 +34,31 @@ function theme_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
+
+function charger_media_categories_callback()
+{
+    $categories = get_terms('media_categories');
+    $options = '<option value="">SÉLECTIONNER UNE CATÉGORIE</option>';
+    foreach ($categories as $category) {
+        $options .= '<option value="' . $category->slug . '">' . strtoupper($category->name) . '</option>';
+    }
+    echo $options;
+    wp_die();
+}
+add_action('wp_ajax_charger_media_categories', 'charger_media_categories_callback');
+add_action('wp_ajax_nopriv_charger_media_categories', 'charger_media_categories_callback');
+
+
+function charger_formats_callback()
+{
+    $formats = get_terms('format');
+    $options = '<option value="">SÉLECTIONNER UN FORMAT</option>';
+    foreach ($formats as $format) {
+        $options .= '<option value="' . $format->slug . '">' . strtoupper($format->name) . '</option>';
+    }
+    echo $options;
+    wp_die();
+}
+add_action('wp_ajax_charger_formats', 'charger_formats_callback');
+add_action('wp_ajax_nopriv_charger_formats', 'charger_formats_callback');
+

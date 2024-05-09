@@ -41,7 +41,8 @@ $reference = esc_attr(get_post_meta(get_the_ID(), "reference", true));// recuper
                     }
                     ?>
                     <p>Type : <?php echo get_post_meta(get_the_ID(), 'type', true); ?></p>
-                    <p>Année : <?php echo get_field('field_6627e2c622964'); ?></p>
+                    <p>Année : <?php echo get_field('field_6627e2c622964'); ?>
+
 
 
 

@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
 
 
 
-
+// post page
 document.addEventListener('DOMContentLoaded', function () {
     const arrowGauche = document.querySelector('.fleche-gauche');
     const arrowDroite = document.querySelector('.fleche-droite');
@@ -85,6 +85,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+// Fonction pour charger les catégories depuis WordPress
+function chargerCategories() {
+    jQuery.ajax({
+        url: ajaxurl, // L'URL de l'API AJAX de WordPress
+        type: 'POST',
+        data: {
+            action: 'charger_media_categories' // Action WordPress pour traiter la requête
+        },
+        success: function (response) {
+            // Ajouter les catégories récupérées en tant qu'options dans le menu déroulant des catégories
+            jQuery('#categorie').html(response);
+        }
+    });
+}
+
+
+// Fonction pour charger les formats depuis WordPress
+function chargerFormats() {
+    jQuery.ajax({
+        url: ajaxurl, // L'URL de l'API AJAX de WordPress
+        type: 'POST',
+        data: {
+            action: 'charger_formats' // Action WordPress pour traiter la requête
+        },
+        success: function (response) {
+            // Ajouter les formats récupérés en tant qu'options dans le menu déroulant des formats
+            jQuery('#format').html(response);
+        }
+    });
+}
+
+// Appeler les fonctions pour charger les catégories et les formats lorsque le document est prêt
+jQuery(document).ready(function () {
+    chargerCategories();
+    chargerFormats();
+});
 
 
 

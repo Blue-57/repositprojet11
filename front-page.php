@@ -25,36 +25,25 @@
 
         </select>
     </div>
-
     <div class="photo-container">
         <?php
         // Début de la boucle
         $all_photos = new WP_Query(
             array(
                 'post_type' => 'photos',
-                'posts_per_page' => -1 // Afficher toutes les photos
+                'posts_per_page' => 4 // Chargez un nombre limité de photos initialement
             )
         );
 
-        $displayed_posts = array(); // Tableau pour stocker les identifiants des articles déjà affichés
-        
         if ($all_photos->have_posts()):
             while ($all_photos->have_posts()):
                 $all_photos->the_post();
-
-                // Vérifier si cet article a déjà été affiché
-                if (!in_array(get_the_ID(), $displayed_posts)) {
-                    // Ajouter l'ID de l'article à la liste des articles déjà affichés
-                    $displayed_posts[] = get_the_ID();
-                    // Contenu de chaque photo ici
-                    ?>
-                    <div class="photo">
-
-                        <?php the_post_thumbnail(); ?>
-
-                    </div>
-                    <?php
-                }
+                // Contenu de chaque photo ici, sans l'afficher immédiatement
+                ?>
+                <div class="photo" data-post-id="<?php echo get_the_ID(); ?>">
+                    <?php the_post_thumbnail(); ?>
+                </div>
+                <?php
             endwhile;
             wp_reset_postdata();
         else:
@@ -63,27 +52,14 @@
         endif;
         // Fin de la boucle
         ?>
-
     </div>
+
+
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<input id="load-more-button" class="more-photos" type="button" value="Charger plus">
 
 
 

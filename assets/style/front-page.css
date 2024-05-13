@@ -44,4 +44,22 @@
      object-fit: cover;
   margin-bottom: 20px;
   margin-right: 20px;
-}/*# sourceMappingURL=front-page.css.map */
+}
+
+.more-photos {
+  position: relative;
+  font-family: "firstpolice";
+  width: 30vh;
+  height: 5vh;
+  background-color: #D8D8D8;
+  border: 1px solid transparent;
+  left: 42%;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.more-photos__btn:hover {
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
+  border-color: #D8D8D8;
+}
+/*# sourceMappingURL=front-page.css.map */

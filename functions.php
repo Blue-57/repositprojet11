@@ -30,35 +30,25 @@ function theme_enqueue_styles()
 
     wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/style/style.css', array('parent-style'), '1.1.0', 'all', );
 
-    wp_enqueue_script('custom-script-contact', get_stylesheet_directory_uri() . '/assets/js/script-contact.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('custom-script-contact', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
-/*
-function charger_media_categories_callback()
+
+
+
+add_action('wp_enqueue_scripts', 'enqueue_post_navigation_script');
+// fichier js pour eviter erreur console, appel fichier js sur page acceuil 
+function enqueue_post_navigation_script()
 {
-    $categories = get_terms('media_categories');
-    $options = '<option value="">SÉLECTIONNER UNE CATÉGORIE</option>';
-    foreach ($categories as $category) {
-        $options .= '<option value="' . $category->slug . '">' . strtoupper($category->name) . '</option>';
+    // Vérifier si nous sommes sur une page de publication individuelle
+    if (is_single()) {
+        // Enregistrer le script pour la navigation de publication
+        wp_enqueue_script('post-navigation-script', get_template_directory_uri() . '/assets/js/post.js', array(), '1.0.0', true);
     }
-    echo $options;
-    wp_die();
 }
-add_action('wp_ajax_charger_media_categories', 'charger_media_categories_callback');
-add_action('wp_ajax_nopriv_charger_media_categories', 'charger_media_categories_callback');
 
 
-function charger_formats_callback()
-{
-    $formats = get_terms('format');
-    $options = '<option value="">SÉLECTIONNER UN FORMAT</option>';
-    foreach ($formats as $format) {
-        $options .= '<option value="' . $format->slug . '">' . strtoupper($format->name) . '</option>';
-    }
-    echo $options;
-    wp_die();
-}
-add_action('wp_ajax_charger_formats', 'charger_formats_callback');
-add_action('wp_ajax_nopriv_charger_formats', 'charger_formats_callback');*/
 
+//appel fichier ajax 
+require_once get_template_directory() . '/ajax.php';

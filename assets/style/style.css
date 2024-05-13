@@ -282,13 +282,12 @@
 .hero h1 {
   font-family: "firstpolice";
   text-transform: uppercase;
-  font-size: 100px;
+  font-size: 125px;
   font-weight: 700;
   font-style: italic;
   line-height: 142.18px;
   color: transparent;
-  -webkit-text-stroke: 0.1px white;
-  outline: 1px #fff;
+  -webkit-text-stroke: 0.1vh white;
 }
 
 .hero__background {
@@ -350,6 +349,23 @@
   margin-right: 20px;
 }
 
+.more-photos {
+  position: relative;
+  font-family: "firstpolice";
+  width: 30vh;
+  height: 5vh;
+  background-color: #D8D8D8;
+  border: 1px solid transparent;
+  left: 42%;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.more-photos__btn:hover {
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
+  border-color: #D8D8D8;
+}
+
 html {
   height: 100%;
 }
@@ -360,4 +376,5 @@ body {
   justify-content: space-between;
   min-height: 100vh;
   margin: 0;
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */

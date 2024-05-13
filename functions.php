@@ -34,7 +34,7 @@ function theme_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
-
+/*
 function charger_media_categories_callback()
 {
     $categories = get_terms('media_categories');
@@ -60,5 +60,5 @@ function charger_formats_callback()
     wp_die();
 }
 add_action('wp_ajax_charger_formats', 'charger_formats_callback');
-add_action('wp_ajax_nopriv_charger_formats', 'charger_formats_callback');
+add_action('wp_ajax_nopriv_charger_formats', 'charger_formats_callback');*/
 

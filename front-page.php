@@ -9,25 +9,62 @@
 
 
 <div class="menu-container">
-    <select name="categorie" id="categorie">
-        <option value="">CATÉGORIES</option>
+    <div class="filters">
+        <select name="categorie" id="categorie">
+            <option value="">CATÉGORIES</option>
 
-    </select>
+        </select>
 
-    <select name="format" id="format">
-        <option value="">FORMATS</option>
+        <select name="format" id="format">
+            <option value="">FORMATS</option>
 
-    </select>
+        </select>
 
+        <select name="trier" id="trier">
+            <option value="">TRIER PAR</option>
 
+        </select>
+    </div>
 
-    <select name="trier" id="trier">
-        <option value="">TRIER PAR</option>
+    <div class="photo-container">
+        <?php
+        // Début de la boucle
+        $all_photos = new WP_Query(
+            array(
+                'post_type' => 'photos',
+                'posts_per_page' => -1 // Afficher toutes les photos
+            )
+        );
 
-    </select>
+        $displayed_posts = array(); // Tableau pour stocker les identifiants des articles déjà affichés
+        
+        if ($all_photos->have_posts()):
+            while ($all_photos->have_posts()):
+                $all_photos->the_post();
 
+                // Vérifier si cet article a déjà été affiché
+                if (!in_array(get_the_ID(), $displayed_posts)) {
+                    // Ajouter l'ID de l'article à la liste des articles déjà affichés
+                    $displayed_posts[] = get_the_ID();
+                    // Contenu de chaque photo ici
+                    ?>
+                    <div class="photo">
 
+                        <?php the_post_thumbnail(); ?>
 
+                    </div>
+                    <?php
+                }
+            endwhile;
+            wp_reset_postdata();
+        else:
+            // Si aucune photo n'est trouvée
+            echo 'Aucune photo trouvée.';
+        endif;
+        // Fin de la boucle
+        ?>
+
+    </div>
 </div>
 
 

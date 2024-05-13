@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+/*
 // Fonction pour charger les catégories depuis WordPress
 function chargerCategories() {
     jQuery.ajax({
@@ -162,4 +162,4 @@ jQuery(document).ready(function () {
 });
 
 
-
+*/

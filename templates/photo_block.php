@@ -1,21 +1,22 @@
 <?php
-
+// Récupérer les termes de taxonomie pour la publication actuelle
 $terms_categories = get_the_terms($post->ID, 'media_categories');
-
 $terms_formats = get_the_terms($post->ID, 'format');
 
-// Vérifier si les termes existent et ne sont pas une erreur
+
 if (!empty($terms_categories) && !empty($terms_formats) && !is_wp_error($terms_categories) && !is_wp_error($terms_formats)) {
     // Récupérer les IDs des termes de taxonomie pour les catégories de médias
     $category_ids = wp_list_pluck($terms_categories, 'term_id');
-    // Récupérer les IDs des termes de taxonomie pour les formats
     $format_ids = wp_list_pluck($terms_formats, 'term_id');
+
+    // Exclure l'ID de la publication actuelle de la liste des publications à récupérer
+    $exclude_post_id = $post->ID;
 
     // Requête WP_Query pour récupérer deux photos de la même sous-catégorie de médias et de format
     $random_images = new WP_Query(
         array(
             'post_type' => 'photos',
-            'post__not_in' => array($post->ID),
+            'post__not_in' => array($exclude_post_id), // Exclure la publication actuelle
             'tax_query' => array(
                 'relation' => 'AND', // Utiliser une relation "ET" pour inclure les photos qui correspondent à la fois aux catégories de médias et aux formats
                 array(

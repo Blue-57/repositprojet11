@@ -37,44 +37,73 @@ jQuery(document).ready(function ($) {
     });
 });
 
-
-
-
-
-
-// requete
-jQuery(function ($) {
-    var offset = 4;
+jQuery(document).ready(function ($) {
+    var page = 0;
     var postsPerPage = 4;
+    var loading = false; // Indique si une requête AJAX est en cours
+    var endOfPosts = false; // Indique si tous les posts ont été chargés
 
-    // Fonction pour charger plus de publications
-    function loadMorePosts() {
-        offset += postsPerPage;
+    // Fonction pour charger plus de photos
+    function loadMorePhotos() {
+        if (!loading && !endOfPosts) {
+            loading = true; // Mettre le chargement à true pour éviter les requêtes multiples simultanées
 
-        // Envoie une requête Ajax pour charger plus de publications
-        $.ajax({
-            url: ajaxurl,
-            type: 'POST',
-            data: {
-                action: 'load_more_posts',
-                offset: offset,
-                posts_per_page: postsPerPage
-            },
-            success: function (response) {
-                // Ajoute les publications chargées à l'élément avec l'ID "posts-container"
-                $('#posts-container').append(response);
+            // Envoyer une requête AJAX pour récupérer les publications suivantes
+            $.ajax({
+                url: my_ajax_obj.ajax_url, // URL de l'API AJAX de WordPress
+                type: 'POST',
+                data: {
+                    action: 'load_more_photos', // Action à définir dans WordPress pour gérer cette requête
+                    page: page, // Page actuelle
+                    posts_per_page: postsPerPage // Nombre de publications par page
+                },
+                success: function (response) {
+                    if (response.trim() !== '') {
+                        // Vérifier les nouvelles photos pour éviter les doublons
+                        var newPhotos = $(response).find('.photo');
+                        var existingPhotoIds = $('.photo').map(function () {
+                            return $(this).data('post-id');
+                        }).get();
+
+                        newPhotos.each(function () {
+                            var postId = $(this).data('post-id');
+                            // Ajouter uniquement les photos qui ne sont pas déjà présentes sur la page
+                            if (existingPhotoIds.indexOf(postId) === -1) {
+                                $('.photo-container').append($(this));
+                            }
+                        });
 
 
-            }
-        });
+
+                        page++; // Passer à la page suivante pour la prochaine requête
+                    } else {
+                        // Indiquer que tous les posts ont été chargés
+                        endOfPosts = true;
+                    }
+                    loading = false; // Réinitialiser le statut de chargement
+                },
+                error: function (xhr, status, error) {
+                    console.error('Erreur AJAX :', error); // Gérer les erreurs éventuelles
+                    loading = false; // Réinitialiser le statut de chargement en cas d'erreur
+                }
+            });
+        }
     }
 
-    // Gérer le clic sur le bouton "Charger plus"
+    // Clic sur le bouton "Charger plus"
     $('#load-more-button').on('click', function () {
-        loadMorePosts();
-
+        loadMorePhotos(); // Charger plus de photos au clic sur le bouton
     });
+
+
 });
 
 
+
+/*
+   $(window).on('scroll', function () {
+       if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+           loadMorePhotos(); // 
+       }
+   });*/
 

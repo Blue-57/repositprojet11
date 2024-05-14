@@ -43,7 +43,7 @@ function enqueue_post_navigation_script()
 {
     // Vérifier si nous sommes sur une page de publication individuelle
     if (is_single()) {
-        // Enregistrer le script pour la navigation de publication
+
         wp_enqueue_script('post-navigation-script', get_template_directory_uri() . '/assets/js/post.js', array(), '1.0.0', true);
     }
 }

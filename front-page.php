@@ -4,10 +4,6 @@
 
 <?php get_template_part('hero'); ?>
 
-
-
-
-
 <div class="menu-container">
     <div class="filters">
         <select name="categorie" id="categorie">
@@ -27,43 +23,37 @@
     </div>
     <div class="photo-container">
         <?php
-        // Début de la boucle
+        // Début de la boucle pour afficher les photos
         $all_photos = new WP_Query(
             array(
                 'post_type' => 'photos',
-                'posts_per_page' => 4 // Chargez un nombre limité de photos initialement
+                'posts_per_page' => 4 // Limite initiale de photos à afficher
             )
         );
 
         if ($all_photos->have_posts()):
             while ($all_photos->have_posts()):
                 $all_photos->the_post();
-                // Contenu de chaque photo ici, sans l'afficher immédiatement
+                // Obtenir le lien vers le post
+                $post_link = get_permalink();
+                // Afficher chaque photo avec un lien vers le post
                 ?>
-                <div class="photo" data-post-id="<?php echo get_the_ID(); ?>">
+                <a href="<?php echo $post_link; ?>" class="photo" data-post-id="<?php echo get_the_ID(); ?>">
                     <?php the_post_thumbnail(); ?>
-                </div>
+                </a>
                 <?php
             endwhile;
             wp_reset_postdata();
         else:
-            // Si aucune photo n'est trouvée
+            // Aucune photo trouvée
             echo 'Aucune photo trouvée.';
         endif;
         // Fin de la boucle
         ?>
     </div>
-
-
 </div>
 
-
-
 <input id="load-more-button" class="more-photos" type="button" value="Charger plus">
-
-
-
-
 
 
 

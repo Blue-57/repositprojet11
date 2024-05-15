@@ -27,15 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// JavaScript pour le bouton du bas de la page
-jQuery(document).ready(function ($) {
-    // Gestionnaire de clic pour le bouton en bas de la page
-    $('#bottom-Btn').click(function () {
-        var reference = window.reference;
-        $('#reference-form-field').val(reference);
-        $('#modalContact').show();
-    });
-});
 
 jQuery(document).ready(function ($) {
     var page = 0;
@@ -106,4 +97,3 @@ jQuery(document).ready(function ($) {
            loadMorePhotos(); // 
        }
    });*/
-

@@ -54,11 +54,11 @@
   background-color: #D8D8D8;
   border: 1px solid transparent;
   outline: none;
-  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: background-color 0.4s, color 0.4s;
 }
 .interaction-photo__btn:hover {
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
-  border-color: #D8D8D8;
+  background-color: black;
+  color: white;
 }
 
 .texte {
@@ -138,4 +138,5 @@
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-}/*# sourceMappingURL=post-photo.css.map */
+}
+/*# sourceMappingURL=post-photo.css.map */

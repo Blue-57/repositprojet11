@@ -6,28 +6,30 @@
 
 <div class="menu-container">
     <div class="filters">
-        <select name="categorie" id="categorie">
+        <select>
             <option value="">CATÉGORIES</option>
 
         </select>
 
-        <select name="format" id="format">
+        <select>
             <option value="">FORMATS</option>
 
         </select>
 
-        <select name="trier" id="trier">
+        <select>
             <option value="">TRIER PAR</option>
 
         </select>
     </div>
+
+
     <div class="photo-container">
         <?php
         // Début de la boucle pour afficher les photos
         $all_photos = new WP_Query(
             array(
                 'post_type' => 'photos',
-                'posts_per_page' => 4 // Limite initiale de photos à afficher
+                'posts_per_page' => 4, // Limite initiale de photos à afficher
             )
         );
 
@@ -37,6 +39,7 @@
                 // Obtenir le lien vers le post
                 $post_link = get_permalink();
                 // Afficher chaque photo avec un lien vers le post
+        
                 ?>
                 <a href="<?php echo $post_link; ?>" class="photo" data-post-id="<?php echo get_the_ID(); ?>">
                     <?php the_post_thumbnail(); ?>
@@ -44,11 +47,9 @@
                 <?php
             endwhile;
             wp_reset_postdata();
-        else:
-            // Aucune photo trouvée
-            echo 'Aucune photo trouvée.';
+
         endif;
-        // Fin de la boucle
+
         ?>
     </div>
 </div>

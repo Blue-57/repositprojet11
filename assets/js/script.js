@@ -92,8 +92,57 @@ jQuery(document).ready(function ($) {
 
 
 /*
-   $(window).on('scroll', function () {
-       if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
-           loadMorePhotos(); // 
-       }
-   });*/
+$(window).on('scroll', function () {
+   if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+       loadMorePhotos(); // 
+   }
+});*/
+
+
+
+
+function ajaxRequest(chargerPlus) {
+    var categorieSelection = $('#media-categories-selector').val();
+    var formatSelection = $('#media-format-selector').val();
+    var ordre = $('#media-odre-selector"').val();
+
+    $.ajax({
+        type: 'POST',
+        url: my_ajax_obj.ajax_url,
+        dataType: 'html',
+        data: {
+            action: 'filter',
+            categorieTaxonomie: 'media_categories',
+            categorieSelection: categorieSelection,
+            formatTaxonomie: 'format',
+            formatSelection: formatSelection,
+            orderDirection: ordre,
+            page: pageActuelle,
+        },
+        success: function (resultat) {
+            if (chargerPlus) {
+                $('#photo-container').append(resultat);
+            } else {
+                $('#photo-container').html(resultat);
+            }
+
+            if (categorieSelection === 'mariage' && pageActuelle >= 3) {
+                $('#load-more-button').attr('style', 'display: none;');
+            } else if (pageActuelle === 5) {
+                $('#load-more-button').attr('style', 'display: none;');
+            } else if (
+                (categorieSelection === 'concert' ||
+                    categorieSelection === 'reception' || categorieSelection === 'television') &&
+                pageActuelle === 1
+            ) {
+                $('#load-more-button').attr('style', 'display: none;');
+            } else {
+                $('#load-more-button').attr('style', 'display: block;');
+            }
+        },
+        error: function (result) {
+            console.warn(result);
+        },
+    });
+}
+

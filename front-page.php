@@ -6,18 +6,21 @@
 
 <div class="menu-container">
     <div class="filters">
-        <select>
-            <option value="">CATÉGORIES</option>
+        <select id="media-categories-selector">
 
+            <option value="all">CATÉGORIES</option>
+            <?php echo generate_taxonomy_options('media_categories', ); ?>
         </select>
 
-        <select>
-            <option value="">FORMATS</option>
 
+
+        <select id="media-format-selector">
+            <option value="all">FORMATS</option>
+            <?php echo generate_taxonomy_options('format', ); ?>
         </select>
 
-        <select>
-            <option value="">TRIER PAR</option>
+        <select id="media-odre-selector">
+            <option value="all">TRIER PAR</option>
 
         </select>
     </div>

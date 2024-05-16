@@ -6,22 +6,34 @@
 
 <div class="menu-container">
     <div class="filters">
-        <select id="media-categories-selector">
 
+
+        <select id="media-categories-selector">
             <option value="all">CATÉGORIES</option>
-            <?php echo generate_taxonomy_options('media_categories', ); ?>
+            <option value="all">
+            </option>
+
+
+            <?php echo generate_taxonomy_options('media_categories', 'all'); ?>
         </select>
 
 
 
         <select id="media-format-selector">
             <option value="all">FORMATS</option>
-            <?php echo generate_taxonomy_options('format', ); ?>
+            <option value="all">
+            </option>
+
+            <?php echo generate_taxonomy_options('format', 'all'); ?>
         </select>
 
         <select id="media-odre-selector">
             <option value="all">TRIER PAR</option>
+            <option value="all">
+            </option>
 
+            <option value="DESC">Les plus récentes</option>
+            <option value="">Les plus anciennes</option>
         </select>
     </div>
 
@@ -32,7 +44,7 @@
         $all_photos = new WP_Query(
             array(
                 'post_type' => 'photos',
-                'posts_per_page' => 4, // Limite initiale de photos à afficher
+                'posts_per_page' => 8, // Limite initiale de photos à afficher
             )
         );
 

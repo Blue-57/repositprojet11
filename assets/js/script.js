@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 jQuery(document).ready(function ($) {
     var page = 0;
-    var postsPerPage = 4;
+    var postsPerPage = 8;
     var loading = false; // Indique si une requête AJAX est en cours
     var endOfPosts = false; // Indique si tous les posts ont été chargés
 
@@ -100,49 +100,45 @@ $(window).on('scroll', function () {
 
 
 
-
-function ajaxRequest(chargerPlus) {
-    var categorieSelection = $('#media-categories-selector').val();
-    var formatSelection = $('#media-format-selector').val();
-    var ordre = $('#media-odre-selector"').val();
-
-    $.ajax({
-        type: 'POST',
-        url: my_ajax_obj.ajax_url,
-        dataType: 'html',
-        data: {
-            action: 'filter',
-            categorieTaxonomie: 'media_categories',
-            categorieSelection: categorieSelection,
-            formatTaxonomie: 'format',
-            formatSelection: formatSelection,
-            orderDirection: ordre,
-            page: pageActuelle,
-        },
-        success: function (resultat) {
-            if (chargerPlus) {
-                $('#photo-container').append(resultat);
-            } else {
-                $('#photo-container').html(resultat);
-            }
-
-            if (categorieSelection === 'mariage' && pageActuelle >= 3) {
-                $('#load-more-button').attr('style', 'display: none;');
-            } else if (pageActuelle === 5) {
-                $('#load-more-button').attr('style', 'display: none;');
-            } else if (
-                (categorieSelection === 'concert' ||
-                    categorieSelection === 'reception' || categorieSelection === 'television') &&
-                pageActuelle === 1
-            ) {
-                $('#load-more-button').attr('style', 'display: none;');
-            } else {
-                $('#load-more-button').attr('style', 'display: block;');
-            }
-        },
-        error: function (result) {
-            console.warn(result);
-        },
+jQuery(document).ready(function ($) {
+    // Associer un événement de changement au menu déroulant des catégories
+    $('#media-categories-selector').change(function () {
+        ajaxRequest();
     });
-}
 
+    // Associer un événement de changement au menu déroulant des formats
+    $('#media-format-selector').change(function () {
+        ajaxRequest();
+    });
+
+    // Associer un événement de changement au menu déroulant de l'ordre de tri
+    $('#media-odre-selector').change(function () {
+        ajaxRequest();
+    });
+
+    // Fonction pour effectuer la requête AJAX
+    function ajaxRequest() {
+        var categorieSelection = $('#media-categories-selector').val();
+        var formatSelection = $('#media-format-selector').val();
+        var ordre = $('#media-odre-selector').val();
+
+        $.ajax({
+            type: 'POST',
+            url: my_ajax_obj.ajax_url,
+            dataType: 'html',
+            data: {
+                action: 'filter',
+                categorieSelection: categorieSelection,
+                formatSelection: formatSelection,
+                orderDirection: ordre,
+                page: 0 // Réinitialiser la page à 0 lorsque les filtres changent
+            },
+            success: function (resultat) {
+                $('.photo-container').html(resultat); // Mettre à jour la section des photos avec les nouvelles données
+            },
+            error: function (result) {
+                console.warn(result);
+            },
+        });
+    }
+});

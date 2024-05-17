@@ -8,18 +8,16 @@
     <div class="filters">
 
 
-        <select id="media-categories-selector">
+        <select id="media-categories-selector" class="select2">
             <option value="all">CATÉGORIES</option>
             <option value="all">
             </option>
-
-
             <?php echo generate_taxonomy_options('media_categories', 'all'); ?>
         </select>
 
 
 
-        <select id="media-format-selector">
+        <select id="media-format-selector" class="select2">
             <option value="all">FORMATS</option>
             <option value="all">
             </option>
@@ -27,13 +25,13 @@
             <?php echo generate_taxonomy_options('format', 'all'); ?>
         </select>
 
-        <select id="media-odre-selector">
+        <select id="media-odre-selector" class="select2">
             <option value="all">TRIER PAR</option>
             <option value="all">
             </option>
 
             <option value="DESC">Les plus récentes</option>
-            <option value="">Les plus anciennes</option>
+            <option value="ASC">Les plus anciennes</option>
         </select>
     </div>
 
@@ -45,6 +43,7 @@
             array(
                 'post_type' => 'photos',
                 'posts_per_page' => 8, // Limite initiale de photos à afficher
+        
             )
         );
 
@@ -71,7 +70,15 @@
 
 <input id="load-more-button" class="more-photos" type="button" value="Charger plus">
 
+</div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#media-categories-selector, #media-format-selector, #media-odre-selector').select2();
+    });
+</script>
 
 
 <?php get_footer(); ?>

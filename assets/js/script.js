@@ -141,4 +141,7 @@ jQuery(document).ready(function ($) {
             },
         });
     }
+    $('#media-odre-selector').change(function () {
+        ajaxRequest(); // Appeler la fonction AJAX à chaque changement dans le menu déroulant de tri
+    });
 });

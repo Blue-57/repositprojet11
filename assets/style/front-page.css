@@ -8,29 +8,34 @@
   margin-bottom: 5vh;
   margin-top: 10vh;
 }
-.menu-container .filters select {
+.menu-container .filters .select2 {
   font-family: "secondpolice";
-  size: 12px;
+  font-size: 12px;
   font-weight: 500;
-  margin-right: 35px;
   border: 1.3px solid #B8BBC2;
   border-radius: 8px;
-  padding: 10px 140px 10px 15px;
+  padding: 10px 15px;
   background-color: white;
+  flex: 1;
 }
-.menu-container .filters select:hover {
+.menu-container .filters .select2:hover {
   border-color: blue;
 }
-.menu-container .filters select:focus {
+.menu-container .filters .select2:focus {
   outline: none;
   border-radius: 8px 8px 0 0;
 }
-.menu-container .filters select:focus:not(:hover) {
+.menu-container .filters .select2:focus:not(:hover) {
   border-radius: 8px;
 }
-.menu-container .filters select:last-child {
+.menu-container .filters .select2:not(:last-child) {
+  margin-right: 10px;
+}
+.menu-container .filters .select2:first-child {
+  margin-right: 10px;
+}
+.menu-container .filters .select2:last-child {
   margin-left: auto;
-  margin-right: 20px;
 }
 .menu-container .photo-container {
   display: flex;
@@ -62,5 +67,4 @@
 .more-photos:hover {
   background-color: black;
   color: white;
-}
-/*# sourceMappingURL=front-page.css.map */
+}/*# sourceMappingURL=front-page.css.map */

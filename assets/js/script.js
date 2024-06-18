@@ -145,3 +145,6 @@ jQuery(document).ready(function ($) {
         ajaxRequest(); // Appeler la fonction AJAX à chaque changement dans le menu déroulant de tri
     });
 });
+
+
+

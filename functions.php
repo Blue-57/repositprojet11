@@ -47,3 +47,4 @@ function enqueue_post_navigation_script()
 
 //appel fichier ajax 
 require_once get_template_directory() . '/ajax.php';
+

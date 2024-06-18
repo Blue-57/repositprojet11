@@ -8,7 +8,7 @@
     <div class="filters">
 
 
-        <select id="media-categories-selector" class="select2">
+        <select id="media-categories-selector" class="select">
             <option value="all">CATÉGORIES</option>
             <option value="all">
             </option>
@@ -17,7 +17,7 @@
 
 
 
-        <select id="media-format-selector" class="select2">
+        <select id="media-format-selector" class="select">
             <option value="all">FORMATS</option>
             <option value="all">
             </option>
@@ -25,7 +25,7 @@
             <?php echo generate_taxonomy_options('format', 'all'); ?>
         </select>
 
-        <select id="media-odre-selector" class="select2">
+        <select id="media-odre-selector" class="select">
             <option value="all">TRIER PAR</option>
             <option value="all">
             </option>
@@ -72,13 +72,6 @@
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#media-categories-selector, #media-format-selector, #media-odre-selector').select2();
-    });
-</script>
 
 
 <?php get_footer(); ?>

@@ -53,11 +53,8 @@
                 $all_photos->the_post();
                 // Obtenir le lien vers le post
                 $post_link = get_permalink();
-                // Afficher chaque photo avec un lien vers le post
-        
+                // Afficher chaque photo avec un lien vers le post       
                 ?>
-
-
                 <?php
                 include ('photos-templates.php');
             endwhile;

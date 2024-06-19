@@ -9,7 +9,7 @@
         } ?>
 
 
-        <?php get_template_part('/templates/lightbox'); ?>
+        <?php get_template_part('templates/lightbox'); ?>
         <?php wp_footer() ?>
     </nav>
 </footer>

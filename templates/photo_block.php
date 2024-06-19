@@ -38,13 +38,16 @@ if (!empty($terms_categories) && !empty($terms_formats) && !is_wp_error($terms_c
     // Vérifier si des photos ont été trouvées
     if ($random_images->have_posts()) {
         while ($random_images->have_posts()):
-            $random_images->the_post(); ?>
+            $random_images->the_post();
+            get_template_part('photos-templates'); ?>
             <div class="recommandations__image">
                 <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail(); ?>
+
+
                 </a>
             </div>
-        <?php endwhile;
+            <?php
+        endwhile;
         wp_reset_postdata();
     } else {
         echo '<p class="texte">Il n\'y a pas encore d\'autres photos à afficher dans cette catégorie et ce format.</p>';

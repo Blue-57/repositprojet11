@@ -38,8 +38,6 @@
   align-items: center;
 }
 .menu-container .photo-container .photo img {
-  width: 632px;
-  height: 530px;
   -o-object-fit: cover;
      object-fit: cover;
 }

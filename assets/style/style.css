@@ -127,8 +127,8 @@
 }
 
 .post-photo {
-  margin-left: 22vh;
-  margin-right: 22vh;
+  margin-left: 30vh;
+  margin-right: 30vh;
   margin-top: 5vh;
 }
 
@@ -142,7 +142,7 @@
   border-bottom: 1px solid black;
   align-self: flex-end;
   padding-bottom: 50px;
-  width: 72vh;
+  width: 58vh;
 }
 .post-bloc h1 {
   font-style: italic;
@@ -176,9 +176,9 @@
 }
 .interaction-photo__btn {
   font-family: "firstpolice";
-  width: 35vh;
+  width: 27vh;
   height: 5vh;
-  margin-left: 17vh;
+  margin-left: 11vh;
   background-color: #D8D8D8;
   border: 1px solid transparent;
   outline: none;
@@ -251,21 +251,7 @@
 .recommandations__images {
   display: flex;
   flex-wrap: wrap;
-  height: 30vw;
   margin-bottom: 10vh;
-}
-.recommandations__image {
-  flex: 1 1 calc(50% - 20px);
-  margin: 10px;
-  position: relative;
-  overflow: hidden;
-}
-.recommandations__image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
 }
 
 .hero {
@@ -341,8 +327,6 @@
   align-items: center;
 }
 .menu-container .photo-container .photo img {
-  width: 632px;
-  height: 530px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -405,6 +389,17 @@
   cursor: pointer;
   -o-object-fit: none !important;
      object-fit: none !important;
+  transition: transform 0.3s ease;
+}
+.photo-wrapper .eye-icon:hover {
+  transform: scale(1.05);
+}
+.photo-wrapper .info-top-left {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.photo-wrapper:hover .info-top-left {
+  opacity: 1;
 }
 .photo-wrapper .enlarge-icon {
   border-radius: 50%;
@@ -436,6 +431,56 @@
 .photo-wrapper .photo-reference,
 .photo-wrapper .photo-category {
   margin-right: 20px;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
+.lightbox-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.lightbox .full-image {
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: 20px;
+}
+
+.lightbox .photo-title {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.lightbox img {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+}
+
+.lightbox .lightbox-close {
+  left: 90vh;
+  top: -40vh;
+}
+
+.lightbox .lightbox-prev {
+  right: 60vh;
+}
+
+.lightbox .lightbox-next {
+  left: 60vh;
 }
 
 html {

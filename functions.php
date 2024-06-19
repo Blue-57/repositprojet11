@@ -48,3 +48,8 @@ function enqueue_post_navigation_script()
 //appel fichier ajax 
 require_once get_template_directory() . '/ajax.php';
 
+function enqueue_lightbox_script()
+{
+    wp_enqueue_script('lightbox-script', get_template_directory_uri() . '/assets/js/lightbox.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_lightbox_script');

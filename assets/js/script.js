@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 jQuery(document).ready(function ($) {
     var page = 0;
     var postsPerPage = 8;
@@ -50,21 +49,21 @@ jQuery(document).ready(function ($) {
                 },
                 success: function (response) {
                     if (response.trim() !== '') {
-                        // Vérifier les nouvelles photos pour éviter les doublons
-                        var newPhotos = $(response).find('.photo');
-                        var existingPhotoIds = $('.photo').map(function () {
-                            return $(this).data('post-id');
-                        }).get();
+                        // Convertir la réponse en éléments jQuery
+                        var newPhotos = $(response);
 
+                        // Vérifier les nouvelles photos pour éviter les doublons
                         newPhotos.each(function () {
-                            var postId = $(this).data('post-id');
+                            var postId = $(this).find('.photo').data('post-id');
+                            var existingPhotoIds = $('.photo').map(function () {
+                                return $(this).data('post-id');
+                            }).get();
+
                             // Ajouter uniquement les photos qui ne sont pas déjà présentes sur la page
                             if (existingPhotoIds.indexOf(postId) === -1) {
                                 $('.photo-container').append($(this));
                             }
                         });
-
-
 
                         page++; // Passer à la page suivante pour la prochaine requête
                     } else {
@@ -85,9 +84,8 @@ jQuery(document).ready(function ($) {
     $('#load-more-button').on('click', function () {
         loadMorePhotos(); // Charger plus de photos au clic sur le bouton
     });
-
-
 });
+
 
 
 
@@ -147,4 +145,26 @@ jQuery(document).ready(function ($) {
 });
 
 
+/*
+jQuery(document).ready(function ($) {
+    // Fonction pour ouvrir la lightbox
+    $('.enlarge-link').on('click', function (e) {
+        e.preventDefault();
+        var photoUrl = $(this).closest('.photo-wrapper').find('.photo').attr('href');
+        // Utilisation d'une librairie comme Magnific Popup pour la lightbox
+        $.magnificPopup.open({
+            items: {
+                src: photoUrl
+            },
+            type: 'image'
+            // Autres options de configuration de la lightbox
+        });
+    });
 
+    // Effet hover sur la photo pour afficher l'overlay avec l'oeil
+    $('.photo').hover(function () {
+        $(this).find('.hover-overlay').css('opacity', 1);
+    }, function () {
+        $(this).find('.hover-overlay').css('opacity', 0);
+    });
+});*/

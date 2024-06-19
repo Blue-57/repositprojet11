@@ -26,7 +26,7 @@ add_action('wp_enqueue_scripts', 'enqueue_my_script');
 // Fonction pour charger plus de photos via AJAX
 function load_more_photos()
 {
-    $page = isset($_POST['page']) ? intval($_POST['page']) : 0;
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $posts_per_page = 8;
 
     $args = array(
@@ -35,12 +35,14 @@ function load_more_photos()
         'paged' => $page
     );
 
+
     $photos_query = new WP_Query($args);
 
     if ($photos_query->have_posts()) {
         while ($photos_query->have_posts()) {
             $photos_query->the_post();
             $post_link = get_permalink();
+            get_template_part('photos-templates');
             ?>
             <a href="<?php echo esc_url($post_link); ?>">
                 <div class="photo" data-post-id="<?php the_ID(); ?>">
@@ -49,6 +51,7 @@ function load_more_photos()
             </a>
             <?php
         }
+
         wp_reset_postdata();
     } else {
         echo 'Aucune photo trouvée.';
@@ -59,6 +62,9 @@ function load_more_photos()
 
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+
+
+
 
 function filter()
 {

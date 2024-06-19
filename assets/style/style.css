@@ -345,9 +345,6 @@
   height: 530px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-bottom: 20px;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 .more-photos {
@@ -366,6 +363,79 @@
 .more-photos:hover {
   background-color: black;
   color: white;
+}
+
+.photo-wrapper {
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+}
+.photo-wrapper .photo-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+.photo-wrapper img {
+  width: 632px;
+  height: 530px;
+  transition: transform 0.3s ease;
+}
+.photo-wrapper .hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 632px;
+  height: 530px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: auto !important;
+}
+.photo-wrapper:hover .hover-overlay {
+  opacity: 1;
+}
+.photo-wrapper .eye-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -o-object-fit: none !important;
+     object-fit: none !important;
+}
+.photo-wrapper .enlarge-icon {
+  border-radius: 50%;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  -o-object-fit: none;
+     object-fit: none;
+}
+.photo-wrapper .photo-info {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  opacity: 0; /* Masquer par défaut */
+  transition: opacity 0.3s ease;
+}
+.photo-wrapper:hover .photo-info {
+  opacity: 1; /* Afficher au survol */
+}
+.photo-wrapper .photo-reference,
+.photo-wrapper .photo-category {
+  margin-right: 20px;
 }
 
 html {

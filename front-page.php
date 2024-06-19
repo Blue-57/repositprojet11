@@ -47,6 +47,7 @@
             )
         );
 
+
         if ($all_photos->have_posts()):
             while ($all_photos->have_posts()):
                 $all_photos->the_post();
@@ -55,10 +56,10 @@
                 // Afficher chaque photo avec un lien vers le post
         
                 ?>
-                <a href="<?php echo $post_link; ?>" class="photo" data-post-id="<?php echo get_the_ID(); ?>">
-                    <?php the_post_thumbnail(); ?>
-                </a>
+
+
                 <?php
+                include ('photos-templates.php');
             endwhile;
             wp_reset_postdata();
 

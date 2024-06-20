@@ -4,6 +4,7 @@ $post_link = get_permalink();
 ?>
 
 <div class="photo-wrapper">
+    <h1 class="hidden-title" style="display: none;"><?php the_title(); ?></h1>
     <a href="<?php echo esc_url($post_link); ?>" class="photo" data-post-id="<?php echo get_the_ID(); ?>">
         <?php the_post_thumbnail(); ?>
         <div class="hover-overlay">
@@ -16,8 +17,10 @@ $post_link = get_permalink();
         <a class="enlarge-link">
             <img class="enlarge-icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_full.png"
                 alt="Agrandir l'image">
+
         </a>
     </div>
+
     <div class="photo-info">
         <span class="photo-reference">Référence: <?php echo get_the_ID(); ?></span>
         <span class="photo-category">Catégorie: <?php

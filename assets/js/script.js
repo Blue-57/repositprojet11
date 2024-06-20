@@ -71,6 +71,14 @@ jQuery(document).ready(function ($) {
                         endOfPosts = true;
                     }
                     loading = false; // Réinitialiser le statut de chargement
+                    $('.enlarge-link').on('click', function (e) {
+                        e.preventDefault();
+                        photoWrappers = $('.photo-wrapper');
+
+                        currentPhotoIndex = $(this).closest('.photo-wrapper').index('.photo-wrapper');
+                        showLightbox(currentPhotoIndex);
+                    });
+
                 },
                 error: function (xhr, status, error) {
                     console.error('Erreur AJAX :', error); // Gérer les erreurs éventuelles
@@ -133,6 +141,14 @@ jQuery(document).ready(function ($) {
             },
             success: function (resultat) {
                 $('.photo-container').html(resultat); // Mettre à jour la section des photos avec les nouvelles données
+                $('.enlarge-link').on('click', function (e) {
+                    e.preventDefault();
+                    photoWrappers = $('.photo-wrapper');
+
+                    currentPhotoIndex = $(this).closest('.photo-wrapper').index('.photo-wrapper');
+                    showLightbox(currentPhotoIndex);
+                });
+
             },
             error: function (result) {
                 console.warn(result);
@@ -145,26 +161,3 @@ jQuery(document).ready(function ($) {
 });
 
 
-/*
-jQuery(document).ready(function ($) {
-    // Fonction pour ouvrir la lightbox
-    $('.enlarge-link').on('click', function (e) {
-        e.preventDefault();
-        var photoUrl = $(this).closest('.photo-wrapper').find('.photo').attr('href');
-        // Utilisation d'une librairie comme Magnific Popup pour la lightbox
-        $.magnificPopup.open({
-            items: {
-                src: photoUrl
-            },
-            type: 'image'
-            // Autres options de configuration de la lightbox
-        });
-    });
-
-    // Effet hover sur la photo pour afficher l'overlay avec l'oeil
-    $('.photo').hover(function () {
-        $(this).find('.hover-overlay').css('opacity', 1);
-    }, function () {
-        $(this).find('.hover-overlay').css('opacity', 0);
-    });
-});*/

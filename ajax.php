@@ -43,10 +43,12 @@ function load_more_photos()
             $photos_query->the_post();
             $post_link = get_permalink();
             get_template_part('photos-templates');
+
             ?>
             <a href="<?php echo esc_url($post_link); ?>">
                 <div class="photo" data-post-id="<?php the_ID(); ?>">
                     <?php the_post_thumbnail(); ?>
+
                 </div>
             </a>
             <?php
@@ -101,19 +103,21 @@ function filter()
 
     // Vérifier si la requête a réussi
     if ($ajax_query->have_posts()) {
-        // Formatage des résultats de la requête
+
         $response = '';
         while ($ajax_query->have_posts()) {
             $ajax_query->the_post();
-            // Ajouter le contenu de chaque photo à la réponse
+            get_template_part('photos-templates');
+
             $response .= '<a href="' . get_permalink() . '" class="photo" data-post-id="' . get_the_ID() . '">';
-            $response .= get_the_post_thumbnail();
+
             $response .= '</a>';
         }
     } else {
         // Aucune publication trouvée
         $response = 'Aucune photo trouvée.';
     }
+
 
     // Renvoyer la réponse AJAX
     echo $response;

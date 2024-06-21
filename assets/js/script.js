@@ -1,3 +1,6 @@
+
+//modale 
+
 document.addEventListener("DOMContentLoaded", function () {
 
     var modal = document.getElementById('modalContact');
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+// requete ajax
 jQuery(document).ready(function ($) {
     var page = 0;
     var postsPerPage = 8;
@@ -63,13 +66,18 @@ jQuery(document).ready(function ($) {
                             if (existingPhotoIds.indexOf(postId) === -1) {
                                 $('.photo-container').append($(this));
                             }
+
                         });
 
-                        page++; // Passer à la page suivante pour la prochaine requête
+                        page++;
                     } else {
                         // Indiquer que tous les posts ont été chargés
                         endOfPosts = true;
+
+
+
                     }
+
                     loading = false; // Réinitialiser le statut de chargement
                     $('.enlarge-link').on('click', function (e) {
                         e.preventDefault();
@@ -79,10 +87,12 @@ jQuery(document).ready(function ($) {
                         showLightbox(currentPhotoIndex);
                     });
 
+
                 },
                 error: function (xhr, status, error) {
-                    console.error('Erreur AJAX :', error); // Gérer les erreurs éventuelles
+                    console.error('Erreur AJAX :', error);
                     loading = false; // Réinitialiser le statut de chargement en cas d'erreur
+
                 }
             });
         }
@@ -90,17 +100,19 @@ jQuery(document).ready(function ($) {
 
     // Clic sur le bouton "Charger plus"
     $('#load-more-button').on('click', function () {
-        loadMorePhotos(); // Charger plus de photos au clic sur le bouton
+        loadMorePhotos();
+
     });
+
 });
 
 
 
-
+// option pour le scroll
 /*
 $(window).on('scroll', function () {
    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
-       loadMorePhotos(); // 
+       loadMorePhotos(); 
    }
 });*/
 

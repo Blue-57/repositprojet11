@@ -2,8 +2,6 @@ jQuery(document).ready(function ($) {
     currentPhotoIndex = -1;
     photoWrappers = $('.photo-wrapper');
 
-
-
     $('.enlarge-link').on('click', function (e) {
         e.preventDefault();
         currentPhotoIndex = $(this).closest('.photo-wrapper').index('.photo-wrapper');

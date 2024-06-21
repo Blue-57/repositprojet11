@@ -85,12 +85,12 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        opacity: 0; /* Masquer par défaut */
+        opacity: 0; 
         transition: opacity 0.3s ease;
     }
 
     &:hover .photo-info {
-        opacity: 1; /* Afficher au survol */
+        opacity: 1; 
     }
 
     .photo-reference,
@@ -105,7 +105,7 @@
 
 
 
-//lightbox scss
+//lightbox 
 .lightbox {
     display: none;
     position: fixed;

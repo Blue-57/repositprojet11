@@ -9,6 +9,7 @@
   margin-top: 10vh;
 }
 .menu-container .filters select {
+  margin-left: 10px;
   font-family: "secondpolice";
   size: 12px;
   font-weight: 500;
@@ -31,6 +32,7 @@
 .menu-container .filters select:last-child {
   margin-left: auto;
   margin-right: 10px;
+  padding-right: 95px;
 }
 .menu-container .photo-container {
   display: flex;
@@ -40,6 +42,10 @@
 .menu-container .photo-container .photo img {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#media-format-selector {
+  padding-right: 160px;
 }
 
 .more-photos {
@@ -58,4 +64,5 @@
 .more-photos:hover {
   background-color: black;
   color: white;
-}/*# sourceMappingURL=front-page.css.map */
+}
+/*# sourceMappingURL=front-page.css.map */

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .photo-wrapper {
   position: relative;
   margin: 10px;
@@ -74,11 +73,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  opacity: 0; /* Masquer par défaut */
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 .photo-wrapper:hover .photo-info {
-  opacity: 1; /* Afficher au survol */
+  opacity: 1;
 }
 .photo-wrapper .photo-reference,
 .photo-wrapper .photo-category {

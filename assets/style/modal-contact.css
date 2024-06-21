@@ -3,12 +3,12 @@
 .modal {
   display: none; /* Par défaut, la modal est cachée */
   position: fixed; /* Permet de positionner la modal par rapport à la fenêtre du navigateur */
-  z-index: 999; /* Place la modal au-dessus de tout le reste */
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4); /* Fond noir semi-transparent */
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal__container {
@@ -16,7 +16,9 @@
   margin: 6% auto; /* Centrer la modal verticalement et horizontalement */
   padding: 20px;
   border: 3px solid black;
-  width: 25%;
+  width: 30%;
+  bottom: 5vh;
+  height: 85vh;
   position: relative;
   overflow: hidden;
 }
@@ -60,13 +62,12 @@
   display: block; /* Afficher les étiquettes sur une nouvelle ligne */
 }
 .wpcf7-form input[type=submit] {
+  margin-bottom: -65px;
   display: flex;
   justify-content: center;
   background-color: white;
-  width: 50%;
-  max-width: 200px;
   color: black;
-  padding: 10px 120px;
+  padding: 10px 80px;
   border: none;
   cursor: pointer;
   font-family: "secondpolice";
@@ -76,4 +77,5 @@
 .wpcf7-form input[type=submit]:hover {
   background-color: black;
   color: white;
-}/*# sourceMappingURL=modal-contact.css.map */
+}
+/*# sourceMappingURL=modal-contact.css.map */

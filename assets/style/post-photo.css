@@ -53,6 +53,7 @@
   margin-left: 11vh;
   background-color: #D8D8D8;
   border: 1px solid transparent;
+  cursor: pointer;
   outline: none;
   transition: background-color 0.4s, color 0.4s;
 }
@@ -124,4 +125,5 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10vh;
-}/*# sourceMappingURL=post-photo.css.map */
+}
+/*# sourceMappingURL=post-photo.css.map */

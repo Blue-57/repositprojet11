@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-
+    // Afficher l'image suivante au survol de la flèche gauche
     if (arrowGauche) {
         arrowGauche.addEventListener('mouseover', function () {
 

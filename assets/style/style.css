@@ -51,12 +51,12 @@
 .modal {
   display: none; /* Par défaut, la modal est cachée */
   position: fixed; /* Permet de positionner la modal par rapport à la fenêtre du navigateur */
-  z-index: 999; /* Place la modal au-dessus de tout le reste */
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4); /* Fond noir semi-transparent */
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal__container {
@@ -64,7 +64,9 @@
   margin: 6% auto; /* Centrer la modal verticalement et horizontalement */
   padding: 20px;
   border: 3px solid black;
-  width: 25%;
+  width: 30%;
+  bottom: 5vh;
+  height: 85vh;
   position: relative;
   overflow: hidden;
 }
@@ -108,13 +110,12 @@
   display: block; /* Afficher les étiquettes sur une nouvelle ligne */
 }
 .wpcf7-form input[type=submit] {
+  margin-bottom: -65px;
   display: flex;
   justify-content: center;
   background-color: white;
-  width: 50%;
-  max-width: 200px;
   color: black;
-  padding: 10px 120px;
+  padding: 10px 80px;
   border: none;
   cursor: pointer;
   font-family: "secondpolice";
@@ -181,6 +182,7 @@
   margin-left: 11vh;
   background-color: #D8D8D8;
   border: 1px solid transparent;
+  cursor: pointer;
   outline: none;
   transition: background-color 0.4s, color 0.4s;
 }
@@ -298,6 +300,7 @@
   margin-top: 10vh;
 }
 .menu-container .filters select {
+  margin-left: 10px;
   font-family: "secondpolice";
   size: 12px;
   font-weight: 500;
@@ -320,6 +323,7 @@
 .menu-container .filters select:last-child {
   margin-left: auto;
   margin-right: 10px;
+  padding-right: 95px;
 }
 .menu-container .photo-container {
   display: flex;
@@ -329,6 +333,10 @@
 .menu-container .photo-container .photo img {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#media-format-selector {
+  padding-right: 160px;
 }
 
 .more-photos {
@@ -424,11 +432,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  opacity: 0; /* Masquer par défaut */
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 .photo-wrapper:hover .photo-info {
-  opacity: 1; /* Afficher au survol */
+  opacity: 1;
 }
 .photo-wrapper .photo-reference,
 .photo-wrapper .photo-category {

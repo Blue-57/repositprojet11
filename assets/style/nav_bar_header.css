@@ -1,33 +1,127 @@
+@charset "UTF-8";
 .header {
-  height: 75px;
-  margin-top: 15px;
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
+  height: 10vh;
+  width: 100%;
   box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
 }
 .header__nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 2vh;
 }
 .header__nav img {
-  margin-top: 3%;
   width: 300px;
   height: auto;
 }
 
-.menu {
+.primary-menu {
   list-style: none;
   display: flex;
   font-family: "firstpolice";
 }
-.menu li {
+.primary-menu li {
   margin-right: 60px;
 }
-.menu li a {
+.primary-menu li a {
   color: black;
   text-decoration: none;
   line-height: 23.7px;
 }
-.menu li:hover {
+.primary-menu li:hover {
   font-weight: 700;
   cursor: pointer;
-}/*# sourceMappingURL=nav_bar_header.css.map */
+}
+
+/* Styles généraux pour le menu */
+.burger-menu {
+  display: none; /* Masque le burger menu par défaut */
+  width: 4vh;
+  height: 30px;
+  position: absolute;
+  top: 45%; /* Ajuster selon votre design */
+  right: 20px; /* Ajuster selon votre design */
+  cursor: pointer;
+  z-index: 2000; /* Assure que le burger menu est au-dessus de tout le contenu */
+}
+
+.menu-closed, .menu-open {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 5vh;
+  bottom: 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease;
+}
+
+.menu-closed {
+  background-image: url("../img/State=default.png"); /* Image de menu fermé */
+}
+
+.menu-open {
+  background-image: url("../img/State=Open.png"); /* Image de menu ouvert */
+  opacity: 0; /* Cache l'image du menu ouvert initialement */
+  pointer-events: none; /* Désactive les événements de clic sur l'image menu ouvert */
+}
+
+.panel {
+  position: relative; /* Assure le contexte de positionnement pour l'overlay */
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%; /* 50% de la largeur de la div panel */
+  height: 45vh;
+  background-color: red; /* Rouge semi-transparent */
+  z-index: 1000; /* Assure que l'overlay est au-dessus de tout le reste */
+  opacity: 0; /* Démarre invisible */
+  pointer-events: none; /* Désactive les clics sur l'overlay initialement */
+  transition: opacity 0.3s ease; /* Animation de transition */
+}
+
+.mobile-menu {
+  list-style: none;
+  display: flex;
+  font-family: "firstpolice";
+  flex-direction: column;
+  align-items: center;
+  font-size: 3vh;
+  margin-top: 15vh;
+  gap: 2vh;
+}
+.mobile-menu li a {
+  color: white;
+  text-decoration: none;
+  line-height: 23.7px;
+}
+.mobile-menu li:hover {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Media query pour les appareils mobiles (largeur maximale typique pour mobile) */
+@media only screen and (max-width: 768px) {
+  .burger-menu {
+    display: block; /* Affiche le burger menu sur les appareils mobiles */
+  }
+  .header__nav img {
+    margin-top: 10%;
+    width: 70%;
+  }
+  .header__nav .primary-menu {
+    display: none;
+  }
+  #panel-overlay > div > ul > li.btn-contact.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-80 {
+    display: none;
+  }
+}
+/*# sourceMappingURL=nav_bar_header.css.map */

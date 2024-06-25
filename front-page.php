@@ -36,40 +36,42 @@
     </div>
 
 
-    <div class="photo-container">
-        <?php
-        // Début de la boucle pour afficher les photos
-        $all_photos = new WP_Query(
-            array(
-                'post_type' => 'photos',
-                'posts_per_page' => 8, // Limite initiale de photos à afficher
-        
-            )
-        );
 
 
-        if ($all_photos->have_posts()):
-            while ($all_photos->have_posts()):
-                $all_photos->the_post();
-                // Obtenir le lien vers le post
-                $post_link = get_permalink();
-                // Afficher chaque photo avec un lien vers le post       
-                ?>
-                <?php
-                include ('photos-templates.php');
-            endwhile;
-            wp_reset_postdata();
+    <div class="galeries">
+        <div class="photo-container">
+            <?php
+            // Début de la boucle pour afficher les photos
+            $all_photos = new WP_Query(
+                array(
+                    'post_type' => 'photos',
+                    'posts_per_page' => 8, // Limite initiale de photos à afficher
+            
+                )
+            );
 
-        endif;
 
-        ?>
+            if ($all_photos->have_posts()):
+                while ($all_photos->have_posts()):
+                    $all_photos->the_post();
+                    // Obtenir le lien vers le post
+                    $post_link = get_permalink();
+                    // Afficher chaque photo avec un lien vers le post       
+                    ?>
+                    <?php
+                    include ('photos-templates.php');
+                endwhile;
+                wp_reset_postdata();
+
+            endif;
+
+            ?>
+        </div>
+
     </div>
-</div>
-
-<input id="load-more-button" class="more-photos" type="button" value="Charger plus">
+    <input id="load-more-button" class="more-photos" type="button" value="Charger plus">
 
 </div>
-
 
 
 <?php get_footer(); ?>

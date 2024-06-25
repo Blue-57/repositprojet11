@@ -1,7 +1,7 @@
 .post-photo { //bloc page
-    margin-left: 30vh;
-    margin-right: 30vh;
-    margin-top: 5vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 15vh;
 }
 
 
@@ -10,7 +10,7 @@
    
     font-family: 'firstpolice';
     display: flex;
-    flex-direction: row;
+    position: relative;
     justify-content: space-between;
     
     
@@ -19,6 +19,7 @@
         align-self: flex-end;
         padding-bottom: 50px;
         width: 58vh;
+        
        
     }
     h1 {
@@ -38,9 +39,9 @@
     }
 }
 .post-bloc__image { 
-object-fit: cover;
+
     
-    width: 70vh;
+    width: 50%;
     
 }
 
@@ -157,7 +158,8 @@ object-fit: cover;
 
     &__images {
         display: flex; 
-        flex-wrap: wrap; 
+        
+        
         
         margin-bottom: 10vh;
     }
@@ -166,4 +168,61 @@ object-fit: cover;
 }
 
 
+
+@media only screen and (max-width: 768px) {
+    .post-bloc {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      position: relative;
+  
+      .post-bloc__image {
+        width: 100%;
+      }
+    }
+  
+    .interaction-photo {
+      justify-content: center;
+  
+      &__btn {
+        margin-left: 0vh;
+      }
+  
+      .interaction-texte {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+  
+      .interaction-photo__navigation {
+        display: none !important;
+      }
+  
+      .post-bloc__description,
+      .interaction-photo {
+        position: relative; 
+        border-bottom: none; 
+        margin-bottom: -1px; 
+        overflow: visible; 
+        &:before {
+          content: '';
+          position: absolute;
+          left: -20%; 
+          right: -20%;
+          bottom: -2px; 
+          height: 1px; 
+          background-color: black; 
+        }
+      }
+    }
+  
+    .recommandations {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  
+      &__images {
+        flex-direction: column;
+      }
+    }
+  }
 

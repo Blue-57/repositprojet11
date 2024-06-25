@@ -52,6 +52,11 @@ $reference = esc_attr(get_post_meta(get_the_ID(), "reference", true));// recuper
                 <!--<div class="post-bloc__image colonne">
                 <?php if (has_post_thumbnail()): ?>// verification si image s'affiche mise en commentaire si jamais 
                 <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                <?php
+
+
+                ?>
+                </div>
                  <?php else: ?>
        
                 <?php endif; ?>

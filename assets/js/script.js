@@ -1,32 +1,100 @@
 
 //modale 
-
 document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('modalContact'); // Sélectionnez votre modal par son ID
 
-    var modal = document.getElementById('modalContact');
+    // Sélectionnez le bouton "Contact" dans le menu principal
+    var btnMain = document.getElementById("menu-item-80");
 
+    // Sélectionnez le bouton "Contact" dans le menu burger
+    var btnBurger = document.querySelector('.contact');
 
-    var btn = document.getElementById("menu-item-80");
+    var span = document.querySelector(".close"); // Sélectionnez le bouton de fermeture du modal
 
-
-    var span = document.getElementsByClassName("close")[0];
-
-
-    btn.onclick = function () {
+    // Fonction pour ouvrir le modal
+    function openModal() {
         modal.style.display = "block";
     }
 
-    span.onclick = function () {
+    // Fonction pour fermer le modal
+    function closeModal() {
         modal.style.display = "none";
     }
 
+    // Gestion des événements de clic
 
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    // Pour le bouton "Contact" dans le menu principal
+    btnMain.addEventListener("click", function (event) {
+        event.preventDefault(); // Empêchez le lien de suivre le href
+        openModal();
+    });
+
+    // Pour le bouton "burger-menu" (menu burger)
+    btnBurger.addEventListener("click", function (event) {
+        event.preventDefault(); // Empêchez le lien de suivre le href
+        openModal();
+    });
+
+    // Pour le bouton de fermeture du modal
+    span.addEventListener("click", function () {
+        closeModal();
+    });
+
+    // Pour fermer le modal en cliquant en dehors de celui-ci
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            closeModal();
         }
-    }
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var burgerMenu = document.getElementById('burger-menu');
+    var menuClosed = document.querySelector('.menu-closed');
+    var menuOpen = document.querySelector('.menu-open');
+    var menuOverlay = document.getElementById('panel-overlay'); // Utilisation de menu-overlay
+
+    var isOpen = false; // Variable pour suivre l'état du menu ouvert/fermé
+
+    burgerMenu.addEventListener('click', function () {
+        if (!isOpen) {
+            // Si le menu est fermé, ouvre le menu et affiche menu-overlay
+            menuClosed.style.opacity = '0';
+            menuOpen.style.opacity = '1';
+            menuOpen.style.pointerEvents = 'auto'; // Réactive les événements de clic sur l'image menu ouvert
+            menuOverlay.style.opacity = '1'; // Affiche menu-overlay
+            menuOverlay.style.pointerEvents = 'auto'; // Active les événements de clic sur menu-overlay
+            isOpen = true; // Met à jour l'état du menu à ouvert
+        } else {
+            // Si le menu est ouvert, ferme le menu et cache menu-overlay
+            menuClosed.style.opacity = '1';
+            menuOpen.style.opacity = '0';
+            menuOpen.style.pointerEvents = 'none'; // Désactive les événements de clic sur l'image menu ouvert
+            menuOverlay.style.opacity = '0'; // Cache menu-overlay
+            menuOverlay.style.pointerEvents = 'none'; // Désactive les événements de clic sur menu-overlay
+            isOpen = false; // Met à jour l'état du menu à fermé
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
 
 
 // requete ajax
@@ -171,5 +239,11 @@ jQuery(document).ready(function ($) {
         ajaxRequest(); // Appeler la fonction AJAX à chaque changement dans le menu déroulant de tri
     });
 });
+
+
+
+
+
+
 
 

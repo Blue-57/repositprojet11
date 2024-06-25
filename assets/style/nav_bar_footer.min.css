@@ -1,2 +1,2 @@
-.footer{display:flex;justify-content:center;border-top:1px solid #000}
+.footer{display:flex;justify-content:center;border-top:1px solid #000}#menu-nav-footer{display:flex;list-style:none;font-family:"firstpolice";padding:0px}#menu-nav-footer li{padding:0 40px}#menu-nav-footer li a{color:#000;text-decoration:none;line-height:23.7px}#menu-nav-footer li:hover{font-weight:700;cursor:pointer}@media only screen and (max-width: 768px){.footer__nav{margin-top:5vh}#menu-nav-footer{flex-direction:column;align-items:center;padding:0;margin:0}#menu-nav-footer li{margin-bottom:4vh}}
 /*# sourceMappingURL=nav_bar_footer.min.css.map */

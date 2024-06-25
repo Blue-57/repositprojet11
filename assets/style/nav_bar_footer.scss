@@ -2,4 +2,64 @@
     display: flex;
    justify-content: center;
    border-top: 1px solid black;
+
+
+
+   
+  }
+
+
+  #menu-nav-footer{
+
+    display: flex;
+    list-style: none;
+    font-family: 'firstpolice';
+    padding: 0px;
+
+    
+    li {
+        padding: 0 40px;
+        
+        a {
+          color: black; 
+          text-decoration: none;
+          
+          line-height: 23.7px;
+        }
+  
+        &:hover {
+          font-weight: 700;
+          cursor: pointer;
+  
+      }
+      }
+  }
+
+
+  @media only screen and (max-width: 768px){
+    .footer{
+      
+      &__nav{
+
+      margin-top: 5vh;
+      }
+    }
+
+    #menu-nav-footer{
+
+
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+
+
+
+      li{
+        margin-bottom: 4vh;
+      }
+    }
+
+
+
   }

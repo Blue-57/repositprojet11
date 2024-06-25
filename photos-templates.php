@@ -5,8 +5,10 @@ $post_link = get_permalink();
 
 <div class="photo-wrapper">
     <h1 class="hidden-title" style="display: none;"><?php the_title(); ?></h1>
+
     <a href="<?php echo esc_url($post_link); ?>" class="photo" data-post-id="<?php echo get_the_ID(); ?>">
         <?php the_post_thumbnail(); ?>
+
         <div class="hover-overlay">
             <img class="eye-icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/eyes.png"
                 alt="Voir l'image">

@@ -17,8 +17,8 @@
   padding: 20px;
   border: 3px solid black;
   width: 30%;
-  bottom: 5vh;
-  height: 85vh;
+  bottom: -5%;
+  height: 73%;
   position: relative;
   overflow: hidden;
 }
@@ -77,5 +77,23 @@
 .wpcf7-form input[type=submit]:hover {
   background-color: black;
   color: white;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal__container {
+    bottom: -10%;
+  }
+  .modal__container .popup-image {
+    width: 50vh;
+  }
+  .wpcf7-form input[type=submit] {
+    padding: 10px 40px;
+  }
 }
 /*# sourceMappingURL=modal-contact.css.map */

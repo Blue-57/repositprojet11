@@ -492,6 +492,8 @@
   display: flex;
   margin-bottom: 5vh;
   margin-top: 10vh;
+  margin-left: 45px;
+  margin-right: 45px;
 }
 .menu-container .filters select {
   margin-left: 10px;
@@ -559,6 +561,38 @@
   color: white;
 }
 
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .menu-container .filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+  }
+  .menu-container .filters select {
+    margin-left: unset;
+    margin-right: unset;
+  }
+  .menu-container .filters select:last-child {
+    margin-left: unset;
+    margin-right: unset;
+  }
+  .photo-container {
+    justify-content: center;
+  }
+  .photo-container .photo-wrapper {
+    margin: 0px 10px 20px 10px;
+    width: 45%;
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .photo-container {
+    justify-content: center;
+  }
+  .photo-container .photo-wrapper {
+    width: 45%;
+    height: 530px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .menu-container .filters {
     flex-direction: column;
@@ -704,12 +738,10 @@
   justify-content: center;
 }
 .lightbox-content .photo-details .photo-title {
-  margin-right: 25vh;
-  display: inline-block;
+  margin-right: 6vh;
 }
 .lightbox-content .photo-details .photo-reference {
-  display: inline-block;
-  vertical-align: top;
+  margin-left: 6vh;
 }
 .lightbox .lightbox-close,
 .lightbox .lightbox-prev,
@@ -728,14 +760,14 @@
 .lightbox .lightbox-prev.lightbox-close,
 .lightbox .lightbox-next.lightbox-close {
   top: 10px;
-  right: 10px;
+  right: -10%;
   width: 30px;
   height: 30px;
 }
 .lightbox .lightbox-close.lightbox-prev,
 .lightbox .lightbox-prev.lightbox-prev,
 .lightbox .lightbox-next.lightbox-prev {
-  right: 140vh;
+  right: 90%;
   top: 50%;
   transform: translateY(-50%);
   width: 15vh;
@@ -746,7 +778,7 @@
 .lightbox .lightbox-close.lightbox-next,
 .lightbox .lightbox-prev.lightbox-next,
 .lightbox .lightbox-next.lightbox-next {
-  left: 140vh;
+  left: 90%;
   top: 50%;
   transform: translateY(-50%);
   width: 15vh;
@@ -764,6 +796,14 @@
   .photo-wrapper img {
     width: 100%;
     height: 100%;
+  }
+  .lightbox .lightbox-prev.lightbox-prev,
+.lightbox .lightbox-next.lightbox-prev {
+    height: 2vh;
+  }
+  .lightbox .lightbox-prev.lightbox-next,
+.lightbox .lightbox-next.lightbox-next {
+    height: 2vh;
   }
 }
 html {

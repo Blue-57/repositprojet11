@@ -1,8 +1,5 @@
 <?php get_header(); ?>
 
-
-
-
 <?php
 
 $reference = esc_attr(get_post_meta(get_the_ID(), "reference", true));// recuperation de la ref + cript action fichier js/ modif danc WP contact from 7

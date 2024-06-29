@@ -24,7 +24,8 @@ $post_link = get_permalink();
     </div>
 
     <div class="photo-info">
-        <span class="photo-reference">Référence: <?php echo get_the_ID(); ?></span>
+        <span class="photo-reference">Référence: <?php echo get_post_meta(get_the_ID(), 'reference', true); ?></span>
+        <!--modif dernière minute-->
         <span class="photo-category">Catégorie: <?php
         $categories = get_the_terms(get_the_ID(), 'media_categories');
         if ($categories && !is_wp_error($categories)) {

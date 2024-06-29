@@ -53,7 +53,7 @@
     }
     
     .eye-icon:hover {
-        transform: scale(1.05); 
+        transform: scale(1.2); 
     }
     
     .info-top-left {
@@ -219,7 +219,9 @@
     
 .lightbox{
 
-
+    .full-image{
+        object-fit: cover;
+    }
     
     .lightbox-prev,
     .lightbox-next {
